@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert between multiple units like length, weight, area, currency, liquid, and energy with our free Unit Converter tool.">
+    <meta name="keywords" content="Unit Converter, convert unit, convert currency, convert height, Length Converter, Weight Converter, Area Converter, Currency Converter, Liquid Converter, Energy Converter">
+    <meta name="author" content="Subha">
+    <link rel="canonical" href="https://www.yourwebsite.com/unit-converter.html">
+    <title>Unit Converter - Convert Between Multiple Units</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6f61, #ffcc5c, #88d8b0); /* Radiant gradient background */
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content Styles */
+        .tool-container {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Radiant gradient background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .tool-container h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff; /* White background for input */
+        }
+
+        #convertButton {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #convertButton:hover {
+            background: #555;
+        }
+
+        .output-result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px;
+            background-color: #e8f5e9; /* Highlight output area */
+            border-radius: 8px;
+            border: 1px solid #c8e6c9;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Ad Container Styles */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 1200px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #ff6f61, #ffcc5c, #88d8b0); /* Radiant gradient background */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Unit Converter</h1>
+            <p>Convert between multiple units easily and quickly</p>
+        </div>
+        <!-- Header Ad Unit -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="tool-container">
+            <h2>Convert Units</h2>
+            <div class="input-group">
+                <label for="category">Select Category:</label>
+                <select id="category">
+                    <option value="length">Length</option>
+                    <option value="weight">Weight</option>
+                    <option value="area">Area</option>
+                    <option value="currency">Currency</option>
+                    <option value="liquid">Liquid</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="fromUnit">From Unit:</label>
+                <select id="fromUnit"></select>
+            </div>
+            <div class="input-group">
+                <label for="toUnit">To Unit:</label>
+                <select id="toUnit"></select>
+            </div>
+            <div class="input-group">
+                <label for="inputValue">Enter Value:</label>
+                <input type="number" id="inputValue" placeholder="Enter value">
+            </div>
+            <button id="convertButton">Convert</button>
+            <div class="loading" id="loading">
+                <p>Converting... Please wait.</p>
+            </div>
+            <div class="output-result" id="outputResult">
+                <!-- Conversion result will appear here -->
+            </div>
+        </section>
+
+        <!-- Ad Unit Between Tool and Footer -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <!-- Footer Ad Unit -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 All-in-One Online Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Unit Conversion Data
+        const units = {
+            length: [
+                { name: "Meter", value: 1 },
+                { name: "Kilometer", value: 1000 },
+                { name: "Centimeter", value: 0.01 },
+                { name: "Millimeter", value: 0.001 },
+                { name: "Inch", value: 0.0254 },
+                { name: "Foot", value: 0.3048 },
+                { name: "Yard", value: 0.9144 },
+                { name: "Mile", value: 1609.34 },
+            ],
+            weight: [
+                { name: "Kilogram", value: 1 },
+                { name: "Gram", value: 0.001 },
+                { name: "Milligram", value: 0.000001 },
+                { name: "Pound", value: 0.453592 },
+                { name: "Ounce", value: 0.0283495 },
+            ],
+            area: [
+                { name: "Square Meter", value: 1 },
+                { name: "Square Kilometer", value: 1000000 },
+                { name: "Square Foot", value: 0.092903 },
+                { name: "Square Inch", value: 0.00064516 },
+                { name: "Hectare", value: 10000 },
+                { name: "Acre", value: 4046.86 },
+            ],
+            currency: [
+                { name: "USD", value: "USD" },
+                { name: "EUR", value: "EUR" },
+                { name: "GBP", value: "GBP" },
+                { name: "INR", value: "INR" },
+                { name: "JPY", value: "JPY" },
+            ],
+            liquid: [
+                { name: "Liter", value: 1 },
+                { name: "Milliliter", value: 0.001 },
+                { name: "Gallon", value: 3.78541 },
+                { name: "Quart", value: 0.946353 },
+                { name: "Pint", value: 0.473176 },
+                { name: "Cup", value: 0.24 },
+            ],
+            energy: [
+                { name: "Joule", value: 1 },
+                { name: "Kilojoule", value: 1000 },
+                { name: "Calorie", value: 4.184 },
+                { name: "Kilocalorie", value: 4184 },
+                { name: "Watt-hour", value: 3600 },
+            ],
+        };
+
+        // Populate unit dropdowns based on selected category
+        const categorySelect = document.getElementById('category');
+        const fromUnitSelect = document.getElementById('fromUnit');
+        const toUnitSelect = document.getElementById('toUnit');
+
+        categorySelect.addEventListener('change', () => {
+            const selectedCategory = categorySelect.value;
+            const unitList = units[selectedCategory];
+
+            fromUnitSelect.innerHTML = unitList.map(unit => `<option value="${unit.value}">${unit.name}</option>`).join('');
+            toUnitSelect.innerHTML = unitList.map(unit => `<option value="${unit.value}">${unit.name}</option>`).join('');
+        });
+
+        // Trigger change event to populate units on page load
+        categorySelect.dispatchEvent(new Event('change'));
+
+        // Conversion logic
+        document.getElementById('convertButton').addEventListener('click', async function () {
+            const inputValue = parseFloat(document.getElementById('inputValue').value);
+            const fromUnit = fromUnitSelect.value;
+            const toUnit = toUnitSelect.value;
+            const loading = document.getElementById('loading');
+            const outputResult = document.getElementById('outputResult');
+
+            if (isNaN(inputValue)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            // Show loading message
+            loading.style.display = 'block';
+            outputResult.innerHTML = '';
+
+            try {
+                let result;
+                if (categorySelect.value === 'currency') {
+                    // Fetch latest currency rates from an API
+                    const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromUnit}`);
+                    const data = await response.json();
+                    const rate = data.rates[toUnit];
+                    result = inputValue * rate;
+                } else {
+                    // Standard unit conversion
+                    result = (inputValue * fromUnit) / toUnit;
+                }
+
+                // Display result
+                outputResult.innerHTML = `<p>Converted Value: <strong>${result.toFixed(4)}</strong></p>`;
+            } catch (error) {
+                alert("Conversion failed. Please try again.");
+                console.error(error);
+            } finally {
+                // Hide loading message
+                loading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
