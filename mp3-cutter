@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cut your MP3 files online for free with our MP3 Cutter tool. Trim audio files easily and quickly.">
+    <meta name="keywords" content="MP3 Cutter, cut song, song cutter, song trim, MP3 Trimmer, Audio Cutter, Online MP3 Editor, Cut MP3">
+    <meta name="author" content="Subha">
+    <link rel="canonical" href="https://www.yourwebsite.com/mp3-cutter.html">
+    <title>MP3 Cutter - Trim Your Audio Files Online</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6f61, #ffcc5c, #88d8b0); /* Radiant gradient background */
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content Styles */
+        .tool-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .tool-container h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .file-input {
+            margin-bottom: 20px;
+        }
+
+        .file-input label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .file-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .range-input {
+            margin-bottom: 20px;
+        }
+
+        .range-input label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .range-input input {
+            width: 100%;
+        }
+
+        .output-audio {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .output-audio audio {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Ad Container Styles */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 1200px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MP3 Cutter</h1>
+            <p>Trim your audio files online for free</p>
+        </div>
+        <!-- Header Ad Unit -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="tool-container">
+            <h2>Cut Your MP3 File</h2>
+            <div class="file-input">
+                <label for="audioFile">Upload MP3 File:</label>
+                <input type="file" id="audioFile" accept="audio/mp3">
+            </div>
+            <div class="range-input">
+                <label for="startTime">Start Time (seconds):</label>
+                <input type="number" id="startTime" min="0" value="0">
+            </div>
+            <div class="range-input">
+                <label for="endTime">End Time (seconds):</label>
+                <input type="number" id="endTime" min="0" value="0">
+            </div>
+            <button id="cutButton">Cut MP3</button>
+            <div class="output-audio" id="outputAudio">
+                <!-- Output audio will appear here -->
+            </div>
+        </section>
+
+        <!-- Ad Unit Between Tool and Footer -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <!-- Footer Ad Unit -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 All-in-One Online Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for MP3 Cutter
+        document.getElementById('cutButton').addEventListener('click', function () {
+            const audioFile = document.getElementById('audioFile').files[0];
+            const startTime = parseFloat(document.getElementById('startTime').value);
+            const endTime = parseFloat(document.getElementById('endTime').value);
+
+            if (!audioFile) {
+                alert("Please upload an MP3 file.");
+                return;
+            }
+
+            if (isNaN(startTime) || isNaN(endTime) || startTime < 0 || endTime < 0 || endTime <= startTime) {
+                alert("Please enter valid start and end times.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const arrayBuffer = e.target.result;
+
+                audioContext.decodeAudioData(arrayBuffer, function (buffer) {
+                    const duration = buffer.duration;
+
+                    if (endTime > duration) {
+                        alert("End time exceeds the duration of the audio file.");
+                        return;
+                    }
+
+                    const startOffset = startTime;
+                    const endOffset = endTime;
+                    const newBuffer = audioContext.createBuffer(buffer.numberOfChannels, (endOffset - startOffset) * buffer.sampleRate, buffer.sampleRate);
+
+                    for (let channel = 0; channel < buffer.numberOfChannels; channel++) {
+                        const channelData = buffer.getChannelData(channel);
+                        const newChannelData = newBuffer.getChannelData(channel);
+                        for (let i = 0; i < newChannelData.length; i++) {
+                            newChannelData[i] = channelData[i + startOffset * buffer.sampleRate];
+                        }
+                    }
+
+                    const audioBlob = bufferToWave(newBuffer, startOffset, endOffset);
+                    const audioUrl = URL.createObjectURL(audioBlob);
+
+                    const audioElement = document.createElement('audio');
+                    audioElement.controls = true;
+                    audioElement.src = audioUrl;
+                    document.getElementById('outputAudio').innerHTML = '';
+                    document.getElementById('outputAudio').appendChild(audioElement);
+                });
+            };
+            reader.readAsArrayBuffer(audioFile);
+        });
+
+        function bufferToWave(buffer, startOffset, endOffset) {
+            const numOfChan = buffer.numberOfChannels;
+            const length = (endOffset - startOffset) * buffer.sampleRate;
+            const result = new Float32Array(length * numOfChan);
+
+            for (let channel = 0; channel < numOfChan; channel++) {
+                const channelData = buffer.getChannelData(channel);
+                for (let i = 0; i < length; i++) {
+                    result[i * numOfChan + channel] = channelData[i + startOffset * buffer.sampleRate];
+                }
+            }
+
+            const wave = encodeWAV(result, buffer.sampleRate, numOfChan);
+            return new Blob([wave], { type: 'audio/wav' });
+        }
+
+        function encodeWAV(samples, sampleRate, numChannels) {
+            const buffer = new ArrayBuffer(44 + samples.length * 2);
+            const view = new DataView(buffer);
+
+            // Write WAV header
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + samples.length * 2, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * numChannels * 2, true);
+            view.setUint16(32, numChannels * 2, true);
+            view.setUint16(34, 16, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, samples.length * 2, true);
+
+            // Write audio samples
+            floatTo16BitPCM(view, 44, samples);
+
+            return view;
+        }
+
+        function floatTo16BitPCM(output, offset, input) {
+            for (let i = 0; i < input.length; i++, offset += 2) {
+                const s = Math.max(-1, Math.min(1, input[i]));
+                output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+            }
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+    </script>
+</body>
+</html>
