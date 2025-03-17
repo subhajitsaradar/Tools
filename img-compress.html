@@ -1,233 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Compress your images online with our fully responsive image compression tool. Optimize images for web use with customizable compression levels.">
-  <meta name="keywords" content="image compression, optimize images, image resizer, online image tool, image optimizer">
-  <meta name="author" content="Your Name">
-  <title>Image Compression Tool - Optimize Your Images Online</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_AD_UNIT_ID" crossorigin="anonymous"></script>
-  <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress images online for free. Reduce image file size without losing quality.">
+    <meta name="keywords" content="image compressor, compress images, image size reduce, small size image, compressed image, reduce image size">
+    <meta name="author" content="Subha">
+    <link rel="canonical" href="https://www.yourwebsite.com/image-compressor">
+    <title>Image Compressor - Compress Images Online for Free</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7f7f7;
-      color: #333;
-      line-height: 1.6;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6f61, #ffcc5c, #88d8b0);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-    header p {
-      font-size: 1.1rem;
-    }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
 
-    main {
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        /* Tool Section Styles */
+        .tool-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
-    /* Upload Section */
-    #upload-section {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
+        .upload-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    #upload-section label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+        .upload-box input[type="file"] {
+            display: none;
+        }
 
-    #upload-section input[type="file"],
-    #upload-section input[type="number"],
-    #upload-section button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
+        .upload-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-    #upload-section button {
-      background: #2575fc;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+        .upload-label:hover {
+            background: #0056b3;
+        }
 
-    #upload-section button:hover {
-      background: #1a5bbf;
-    }
+        .preview-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    /* Result Section */
-    #result-section {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
+        .image-preview {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
 
-    #result-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
-    #compressed-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    #download-link {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #2575fc;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
+        .controls label {
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
 
-    #download-link:hover {
-      background: #1a5bbf;
-    }
+        .controls input[type="number"] {
+            padding: 5px;
+            width: 60px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-    /* Ad Section */
-    #ad-section {
-      margin: 20px 0;
-      text-align: center;
-    }
+        .controls button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #333;
-      color: white;
-      margin-top: 20px;
-    }
+        .controls button:hover {
+            background: #218838;
+        }
 
-    footer p {
-      font-size: 0.9rem;
-    }
+        .download-box {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+        .download-box a {
+            padding: 10px 20px;
+            background: #17a2b8;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
 
-      header p {
-        font-size: 1rem;
-      }
+        .download-box a:hover {
+            background: #138496;
+        }
 
-      #upload-section,
-      #result-section {
-        padding: 15px;
-      }
-    }
-  </style>
+        /* Ad Container Styles */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 1200px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <h1>Image Compression Tool</h1>
-    <p>Optimize your images for web use with customizable compression levels.</p>
-  </header>
+    <header>
+        <div class="container">
+            <h1>Image Compressor</h1>
+            <p>Compress images online for free</p>
+        </div>
+        <!-- Header Ad Unit -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </header>
 
-  <main>
-    <!-- Image Upload Section -->
-    <section id="upload-section">
-      <label for="image-input">Upload an Image:</label>
-      <input type="file" id="image-input" accept="image/*">
-      <label for="compression-level">Compression Level (0.1 to 1.0):</label>
-      <input type="number" id="compression-level" min="0.1" max="1.0" step="0.1" value="0.5">
-      <button id="compress-btn">Compress Image</button>
-    </section>
+    <main class="container">
+        <section class="tool-section">
+            <div class="upload-box">
+                <input type="file" id="image-input" accept="image/*">
+                <label for="image-input" class="upload-label">
+                    <span>Choose an Image</span>
+                </label>
+            </div>
 
-    <!-- Compressed Image Display Section -->
-    <section id="result-section">
-      <h2>Compressed Image</h2>
-      <img id="compressed-image" src="" alt="Compressed Image">
-      <a id="download-link" href="#" download="compressed-image.jpg">Download Compressed Image</a>
-    </section>
+            <div class="preview-box">
+                <h2>Preview</h2>
+                <div class="image-preview" id="image-preview">
+                    <p>No image selected</p>
+                </div>
+            </div>
 
-    <!-- AdSense Ad Unit -->
-    <section id="ad-section">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="YOUR_ADSENSE_AD_UNIT_ID"
-           data-ad-slot="YOUR_AD_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </section>
-  </main>
+            <div class="controls">
+                <label for="quality">Compression Quality (0.1 - 1.0):</label>
+                <input type="number" id="quality" min="0.1" max="1.0" step="0.1" value="0.7">
+                <button id="compress-btn">Compress Image</button>
+            </div>
 
-  <footer>
-    <p>&copy; 2023 Image Compression Tool. All rights reserved.</p>
-  </footer>
+            <!-- Ad Unit Between Controls and Download Box -->
+            <div class="ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                        crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/browser-image-compression/dist/browser-image-compression.min.js"></script>
-  <script>
-    document.getElementById('compress-btn').addEventListener('click', async () => {
-      const file = document.getElementById('image-input').files[0];
-      const compressionLevel = parseFloat(document.getElementById('compression-level').value);
+            <div class="download-box" id="download-box" style="display: none;">
+                <h2>Download Compressed Image</h2>
+                <a id="download-link" download="compressed-image.jpg">Download</a>
+            </div>
+        </section>
+    </main>
 
-      if (!file) {
-        alert('Please select an image file.');
-        return;
-      }
+    <!-- Footer Ad Unit -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 
-      const options = {
-        maxSizeMB: compressionLevel,
-        maxWidthOrHeight: 1024,
-        useWebWorker: true,
-      };
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 All-in-One Online Tools. All rights reserved.</p>
+        </div>
+    </footer>
 
-      try {
-        const compressedFile = await imageCompression(file, options);
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          document.getElementById('compressed-image').src = e.target.result;
-          document.getElementById('download-link').href = e.target.result;
-        };
-        reader.readAsDataURL(compressedFile);
-      } catch (error) {
-        console.error('Error compressing image:', error);
-        alert('An error occurred while compressing the image.');
-      }
-    });
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageInput = document.getElementById("image-input");
+            const imagePreview = document.getElementById("image-preview");
+            const qualityInput = document.getElementById("quality");
+            const compressBtn = document.getElementById("compress-btn");
+            const downloadBox = document.getElementById("download-box");
+            const downloadLink = document.getElementById("download-link");
+
+            let uploadedImage = null;
+
+            // Handle image upload
+            imageInput.addEventListener("change", function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        uploadedImage = new Image();
+                        uploadedImage.src = event.target.result;
+                        uploadedImage.onload = function () {
+                            imagePreview.innerHTML = `<img src="${uploadedImage.src}" alt="Uploaded Image">`;
+                        };
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Compress image
+            compressBtn.addEventListener("click", function () {
+                if (!uploadedImage) {
+                    alert("Please upload an image first.");
+                    return;
+                }
+
+                const quality = parseFloat(qualityInput.value);
+                if (isNaN(quality) || quality < 0.1 || quality > 1.0) {
+                    alert("Please enter a valid quality value between 0.1 and 1.0.");
+                    return;
+                }
+
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+
+                // Set canvas dimensions to the image dimensions
+                canvas.width = uploadedImage.width;
+                canvas.height = uploadedImage.height;
+
+                // Draw the image on the canvas
+                ctx.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
+
+                // Compress the image
+                canvas.toBlob(
+                    function (blob) {
+                        const compressedImageUrl = URL.createObjectURL(blob);
+                        downloadLink.href = compressedImageUrl;
+                        downloadBox.style.display = "block";
+                    },
+                    "image/jpeg",
+                    quality
+                );
+            });
+        });
+    </script>
 </body>
 </html>
