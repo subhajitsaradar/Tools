@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress PDF files online for free. Reduce PDF size instantly with our easy-to-use PDF compressor.">
+    <meta name="keywords" content="PDF compressor, free pdf compressor, compress PDF, reduce PDF size, online PDF compressor">
+    <meta name="author" content="Subha">
+    <title>PDF Compressor - Adjustable Compression</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <style>
+        /* Radiant Background */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stylish Container */
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Input File Styling */
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px dashed #0073e6;
+            background: #f9f9f9;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+        input[type="file"]:hover {
+            background: #e6f2ff;
+        }
+
+        /* Compression Select Box */
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #0073e6;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Stylish Button */
+        button {
+            background: linear-gradient(90deg, #ff7eb3, #ff758c);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(255, 117, 140, 0.4);
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            box-shadow: 0px 6px 12px rgba(255, 117, 140, 0.5);
+        }
+
+        /* Download Link */
+        #downloadLink {
+            display: none;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        #downloadLink:hover {
+            color: #ff758c;
+        }
+
+        /* AdSense Ad Space */
+        .ad-space {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📄 PDF Compressor - Adjustable Compression 📄</h1>
+    </header>
+
+    <!-- Google AdSense Ad (Top) -->
+    <div class="ad-space">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <main>
+        <div class="container">
+            <input type="file" id="pdfUpload" accept="application/pdf">
+            <select id="compressionLevel">
+                <option value="0.5">High Compression (50%)</option>
+                <option value="0.7">Medium Compression (70%)</option>
+                <option value="0.9" selected>Low Compression (90%)</option>
+            </select>
+            <button onclick="compressPDF()">Compress PDF</button>
+            <a id="downloadLink">Download Compressed PDF</a>
+        </div>
+    </main>
+
+    <!-- Google AdSense Ad (Bottom) -->
+    <div class="ad-space">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 All-in-One Online Tools. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script>
+        async function compressPDF() {
+            let fileInput = document.getElementById("pdfUpload");
+            let compressionLevel = parseFloat(document.getElementById("compressionLevel").value);
+            let file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select a PDF file to compress.");
+                return;
+            }
+
+            let reader = new FileReader();
+            reader.readAsArrayBuffer(file);
+
+            reader.onload = async function (event) {
+                let pdfBytes = event.target.result;
+                let pdfDoc = await PDFLib.PDFDocument.load(pdfBytes);
+
+                let newPdfDoc = await PDFLib.PDFDocument.create();
+                let pages = await newPdfDoc.copyPages(pdfDoc, pdfDoc.getPageIndices());
+
+                pages.forEach((page) => {
+                    let { width, height } = page.getSize();
+                    page.setSize(width * compressionLevel, height * compressionLevel);
+                    newPdfDoc.addPage(page);
+                });
+
+                let compressedBytes = await newPdfDoc.save();
+                let blob = new Blob([compressedBytes], { type: "application/pdf" });
+                let url = URL.createObjectURL(blob);
+
+                let downloadLink = document.getElementById("downloadLink");
+                downloadLink.href = url;
+                downloadLink.download = "compressed.pdf";
+                downloadLink.style.display = "block";
+                downloadLink.innerText = "Download Compressed PDF";
+            };
+        }
+    </script>
+
+</body>
+</html>
