@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert YouTube videos to MP3 instantly. Free, fast, and no registration required.">
+    <meta name="keywords" content="YouTube to MP3, YouTube video to mp3, mp3 converter, online mp3 converter, free YouTube to mp3 converter, video to mp3, free MP3 converter, online video converter">
+    <meta name="author" content="Subha">
+    <title>YouTube to MP3 Converter</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <style>
+        /* Background with gradient effect */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Input field */
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border: 2px solid #0073e6;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Convert Button */
+        button {
+            background: linear-gradient(90deg, #ff7eb3, #ff758c);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(255, 117, 140, 0.4);
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            box-shadow: 0px 6px 12px rgba(255, 117, 140, 0.5);
+        }
+
+        /* AdSense Ad Space */
+        .ad-space {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎵 YouTube to MP3 Converter 🎵</h1>
+    </header>
+
+    <!-- Google AdSense Ad (Top) -->
+    <div class="ad-space">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <main>
+        <div class="container">
+            <input type="text" id="youtubeURL" placeholder="Enter YouTube Video URL">
+            <button onclick="redirectToConverter()">Convert to MP3</button>
+        </div>
+    </main>
+
+    <!-- Google AdSense Ad (Bottom) -->
+    <div class="ad-space">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 All-in-One Online Tools. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function redirectToConverter() {
+            let youtubeURL = document.getElementById("youtubeURL").value;
+            if (!youtubeURL) {
+                alert("Please enter a valid YouTube URL.");
+                return;
+            }
+
+            // Choose one of these services
+            let converterService = `https://yt1s.com/en13/`;
+            let redirectURL = `${converterService}?url=${encodeURIComponent(youtubeURL)}`;
+
+            window.open(redirectURL, "_blank");
+        }
+    </script>
+
+</body>
+</html>
