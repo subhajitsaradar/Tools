@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize images online for free. Maintain aspect ratio and quality while resizing to desired dimensions.">
+    <meta name="keywords" content="image resizer, resize images, small size image, resize picture, picture resize, passport photo, photo resize, image size converter, free image resizer">
+    <meta name="author" content="Subha">
+    <link rel="canonical" href="https://www.yourwebsite.com/image-resizer">
+    <title>Image Resizer - Resize Images Online for Free</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6f61, #ffcc5c, #88d8b0);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tool Section Styles */
+        .tool-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .upload-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .upload-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .upload-label:hover {
+            background: #0056b3;
+        }
+
+        .preview-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-preview {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .size-options {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .size-options label {
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        .size-options select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .custom-size {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .custom-size label {
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        .custom-size input[type="number"] {
+            padding: 5px;
+            width: 80px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .resize-btn {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .resize-btn button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .resize-btn button:hover {
+            background: #218838;
+        }
+
+        .download-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .download-box a {
+            padding: 10px 20px;
+            background: #17a2b8;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .download-box a:hover {
+            background: #138496;
+        }
+
+        /* Ad Container Styles */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 1200px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Image Resizer</h1>
+            <p>Resize images online for free</p>
+        </div>
+        <!-- Header Ad Unit -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="tool-section">
+            <div class="upload-box">
+                <input type="file" id="image-input" accept="image/*">
+                <label for="image-input" class="upload-label">
+                    <span>Choose an Image</span>
+                </label>
+            </div>
+
+            <div class="preview-box">
+                <h2>Preview</h2>
+                <div class="image-preview" id="image-preview">
+                    <p>No image selected</p>
+                </div>
+            </div>
+
+            <div class="size-options">
+                <label for="size-select">Select Size:</label>
+                <select id="size-select">
+                    <option value="custom">Custom</option>
+                    <option value="51x51">51x51</option>
+                    <option value="100x100">100x100</option>
+                    <option value="100x150">100x150</option>
+                    <option value="800x600">800x600</option>
+                    <option value="1024x768">1024x768</option>
+                    <option value="1920x1080">1920x1080</option>
+                </select>
+            </div>
+
+            <div class="custom-size">
+                <label for="width">Width:</label>
+                <input type="number" id="width" placeholder="Width">
+                <label for="height">Height:</label>
+                <input type="number" id="height" placeholder="Height">
+            </div>
+
+            <div class="resize-btn">
+                <button id="resize-btn">Resize Image</button>
+            </div>
+
+            <!-- Ad Unit Between Controls and Download Box -->
+            <div class="ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                        crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="download-box" id="download-box" style="display: none;">
+                <h2>Download Resized Image</h2>
+                <a id="download-link" download="resized-image.png">Download</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Ad Unit -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 All-in-One Online Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageInput = document.getElementById("image-input");
+            const imagePreview = document.getElementById("image-preview");
+            const sizeSelect = document.getElementById("size-select");
+            const widthInput = document.getElementById("width");
+            const heightInput = document.getElementById("height");
+            const resizeBtn = document.getElementById("resize-btn");
+            const downloadBox = document.getElementById("download-box");
+            const downloadLink = document.getElementById("download-link");
+
+            let uploadedImage = null;
+
+            // Handle image upload
+            imageInput.addEventListener("change", function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        uploadedImage = new Image();
+                        uploadedImage.src = event.target.result;
+                        uploadedImage.onload = function () {
+                            imagePreview.innerHTML = `<img src="${uploadedImage.src}" alt="Uploaded Image">`;
+                        };
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Handle size selection
+            sizeSelect.addEventListener("change", function () {
+                if (sizeSelect.value === "custom") {
+                    widthInput.disabled = false;
+                    heightInput.disabled = false;
+                } else {
+                    const [width, height] = sizeSelect.value.split("x");
+                    widthInput.value = width;
+                    heightInput.value = height;
+                    widthInput.disabled = true;
+                    heightInput.disabled = true;
+                }
+            });
+
+            // Resize image while maintaining aspect ratio
+            resizeBtn.addEventListener("click", function () {
+                if (!uploadedImage) {
+                    alert("Please upload an image first.");
+                    return;
+                }
+
+                const width = parseInt(widthInput.value);
+                const height = parseInt(heightInput.value);
+
+                if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+                    alert("Please enter valid width and height values.");
+                    return;
+                }
+
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+
+                // Calculate aspect ratio
+                const originalAspectRatio = uploadedImage.width / uploadedImage.height;
+                const targetAspectRatio = width / height;
+
+                let newWidth, newHeight;
+
+                if (originalAspectRatio > targetAspectRatio) {
+                    // Fit to width
+                    newWidth = width;
+                    newHeight = width / originalAspectRatio;
+                } else {
+                    // Fit to height
+                    newHeight = height;
+                    newWidth = height * originalAspectRatio;
+                }
+
+                // Set canvas dimensions to the calculated size
+                canvas.width = newWidth;
+                canvas.height = newHeight;
+
+                // Draw the image on the canvas with the new dimensions
+                ctx.drawImage(uploadedImage, 0, 0, newWidth, newHeight);
+
+                // Convert canvas to image and provide download link
+                canvas.toBlob(function (blob) {
+                    const resizedImageUrl = URL.createObjectURL(blob);
+                    downloadLink.href = resizedImageUrl;
+                    downloadBox.style.display = "block";
+                }, "image/png");
+            });
+        });
+    </script>
+</body>
+</html>
