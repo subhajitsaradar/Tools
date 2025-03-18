@@ -104,18 +104,6 @@
             <label for="salary">Salary Income (₹):</label>
             <input type="number" id="salary" required>
 
-            <label for="hra">HRA Received (₹):</label>
-            <input type="number" id="hra">
-
-            <label for="rentPaid">Rent Paid (₹):</label>
-            <input type="number" id="rentPaid">
-
-            <label for="metroCity">Do you live in a metro city?</label>
-            <select id="metroCity">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-
             <label for="business">Business/Profession Income (₹):</label>
             <input type="number" id="business">
 
@@ -129,6 +117,18 @@
             <input type="number" id="otherIncome">
 
             <h2>Deductions</h2>
+            <label for="hra">HRA Received (₹):</label>
+            <input type="number" id="hra">
+
+            <label for="rentPaid">Rent Paid (₹):</label>
+            <input type="number" id="rentPaid">
+
+            <label for="metroCity">Do you live in a metro city?</label>
+            <select id="metroCity">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
             <label for="deduction80C">Section 80C (PPF, LIC, ELSS, etc.) (Max ₹1,50,000):</label>
             <input type="number" id="deduction80C">
 
@@ -163,13 +163,15 @@
         function calculateTax() {
             // Fetch input values
             let salary = parseFloat(document.getElementById('salary').value) || 0;
-            let hra = parseFloat(document.getElementById('hra').value) || 0;
-            let rentPaid = parseFloat(document.getElementById('rentPaid').value) || 0;
-            let metroCity = document.getElementById('metroCity').value;
             let business = parseFloat(document.getElementById('business').value) || 0;
             let houseIncome = parseFloat(document.getElementById('houseIncome').value) || 0;
             let capitalGains = parseFloat(document.getElementById('capitalGains').value) || 0;
             let otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+
+            // Fetch HRA and related details
+            let hra = parseFloat(document.getElementById('hra').value) || 0;
+            let rentPaid = parseFloat(document.getElementById('rentPaid').value) || 0;
+            let metroCity = document.getElementById('metroCity').value;
 
             // Fetch deductions
             let deduction80C = Math.min(parseFloat(document.getElementById('deduction80C').value) || 0, 150000);
@@ -244,6 +246,9 @@
                 <strong>Tax Payable:</strong> ₹${tax.toLocaleString()}
             `;
         }
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
