@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your income tax for India in 2025 using our easy-to-use Income Tax Calculator. Supports both old and new tax regimes. Includes HRA and child education fee deductions.">
+    <meta name="keywords" content="Income Tax Calculator, India Tax Calculator, Tax Calculator 2025, HRA Deduction, Child Education Fees, Old Tax Regime, New Tax Regime">
+    <meta name="author" content="Your Name">
+    <title>Income Tax Calculator - India 2025 | Calculate Your Taxes Online</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6f61, #ffcc5c, #88d8b0); /* Radiant gradient background */
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content Styles */
+        main {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Income Tax Calculator (India) - 2025</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <form id="taxForm">
+            <h2>Income Details</h2>
+            <label for="salary">Salary Income (₹):</label>
+            <input type="number" id="salary" required>
+
+            <label for="hra">HRA Received (₹):</label>
+            <input type="number" id="hra">
+
+            <label for="rentPaid">Rent Paid (₹):</label>
+            <input type="number" id="rentPaid">
+
+            <label for="metroCity">Do you live in a metro city?</label>
+            <select id="metroCity">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="business">Business/Profession Income (₹):</label>
+            <input type="number" id="business">
+
+            <label for="houseIncome">Rental Income (₹):</label>
+            <input type="number" id="houseIncome">
+
+            <label for="capitalGains">Capital Gains (₹):</label>
+            <input type="number" id="capitalGains">
+
+            <label for="otherIncome">Other Income (₹):</label>
+            <input type="number" id="otherIncome">
+
+            <h2>Deductions</h2>
+            <label for="deduction80C">Section 80C (PPF, LIC, ELSS, etc.) (Max ₹1,50,000):</label>
+            <input type="number" id="deduction80C">
+
+            <label for="childEducationFees">Child Education Fees (₹):</label>
+            <input type="number" id="childEducationFees">
+
+            <label for="deduction80D">Health Insurance (80D) (₹):</label>
+            <input type="number" id="deduction80D">
+
+            <label for="educationLoan">Education Loan Interest (80E) (₹):</label>
+            <input type="number" id="educationLoan">
+
+            <label for="donations">Donations (80G) (₹):</label>
+            <input type="number" id="donations">
+
+            <label for="homeLoanInterest">Home Loan Interest (Section 24) (₹):</label>
+            <input type="number" id="homeLoanInterest">
+
+            <label for="taxRegime">Tax Regime:</label>
+            <select id="taxRegime">
+                <option value="new">New Regime</option>
+                <option value="old">Old Regime</option>
+            </select>
+
+            <button type="button" onclick="calculateTax()">Calculate Tax</button>
+        </form>
+
+        <div id="result"></div>
+    </main>
+
+    <script>
+        function calculateTax() {
+            // Fetch input values
+            let salary = parseFloat(document.getElementById('salary').value) || 0;
+            let hra = parseFloat(document.getElementById('hra').value) || 0;
+            let rentPaid = parseFloat(document.getElementById('rentPaid').value) || 0;
+            let metroCity = document.getElementById('metroCity').value;
+            let business = parseFloat(document.getElementById('business').value) || 0;
+            let houseIncome = parseFloat(document.getElementById('houseIncome').value) || 0;
+            let capitalGains = parseFloat(document.getElementById('capitalGains').value) || 0;
+            let otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+
+            // Fetch deductions
+            let deduction80C = Math.min(parseFloat(document.getElementById('deduction80C').value) || 0, 150000);
+            let childEducationFees = parseFloat(document.getElementById('childEducationFees').value) || 0;
+            let deduction80D = parseFloat(document.getElementById('deduction80D').value) || 0;
+            let educationLoan = parseFloat(document.getElementById('educationLoan').value) || 0;
+            let donations = parseFloat(document.getElementById('donations').value) || 0;
+            let homeLoanInterest = parseFloat(document.getElementById('homeLoanInterest').value) || 0;
+
+            // Fetch tax regime
+            let taxRegime = document.getElementById('taxRegime').value;
+
+            // Calculate HRA Deduction (only for Old Regime)
+            let hraExemption = 0;
+            if (taxRegime === "old" && hra > 0 && rentPaid > 0) {
+                let condition1 = hra;
+                let condition2 = rentPaid - (0.1 * salary);
+                let condition3 = (metroCity === "yes") ? 0.5 * salary : 0.4 * salary;
+                hraExemption = Math.min(condition1, condition2, condition3);
+            }
+
+            // Calculate total income
+            let totalIncome = salary + business + houseIncome + capitalGains + otherIncome;
+
+            // Standard deduction (if applicable)
+            let standardDeduction = salary > 0 ? 50000 : 0;
+
+            // Total deductions based on tax regime
+            let totalDeductions = (taxRegime === "old") ? 
+                (deduction80C + childEducationFees + deduction80D + educationLoan + donations + homeLoanInterest + standardDeduction + hraExemption) : 
+                standardDeduction;
+
+            // Ensure total deductions under Section 80C do not exceed ₹1,50,000
+            let total80C = deduction80C + childEducationFees;
+            if (total80C > 150000) {
+                totalDeductions -= (total80C - 150000);
+            }
+
+            // Taxable income
+            let taxableIncome = Math.max(totalIncome - totalDeductions, 0);
+
+            // Tax calculation (placeholder for 2025 tax slabs)
+            let tax = 0;
+
+            if (taxRegime === "new") {
+                // New Regime Tax Slabs (Update as per 2025 rules)
+                if (taxableIncome <= 700000) tax = 0; 
+                else if (taxableIncome <= 300000) tax = 0;
+                else if (taxableIncome <= 600000) tax = (taxableIncome - 300000) * 0.05;
+                else if (taxableIncome <= 900000) tax = 15000 + (taxableIncome - 600000) * 0.1;
+                else if (taxableIncome <= 1200000) tax = 45000 + (taxableIncome - 900000) * 0.15;
+                else if (taxableIncome <= 1500000) tax = 90000 + (taxableIncome - 1200000) * 0.2;
+                else tax = 150000 + (taxableIncome - 1500000) * 0.3;
+            } else {
+                // Old Regime Tax Slabs (Update as per 2025 rules)
+                if (taxableIncome <= 500000) tax = 0;
+                else if (taxableIncome <= 250000) tax = 0;
+                else if (taxableIncome <= 500000) tax = (taxableIncome - 250000) * 0.05;
+                else if (taxableIncome <= 1000000) tax = 12500 + (taxableIncome - 500000) * 0.2;
+                else tax = 112500 + (taxableIncome - 1000000) * 0.3;
+            }
+
+            // Display result
+            document.getElementById('result').innerHTML = `
+                <strong>Gross Income:</strong> ₹${totalIncome.toLocaleString()} <br>
+                <strong>Standard Deduction:</strong> ₹${standardDeduction.toLocaleString()} <br>
+                ${taxRegime === "old" ? `<strong>HRA Deduction:</strong> ₹${hraExemption.toLocaleString()} <br>` : ''}
+                <strong>Total Section 80C Deductions:</strong> ₹${total80C.toLocaleString()} <br>
+                <strong>Total Other Deductions:</strong> ₹${(totalDeductions - standardDeduction - hraExemption - total80C).toLocaleString()} <br>
+                <strong>Net Total Deductions:</strong> ₹${totalDeductions.toLocaleString()} <br>
+                <strong>Taxable Income:</strong> ₹${taxableIncome.toLocaleString()} <br>
+                <strong>Tax Payable:</strong> ₹${tax.toLocaleString()}
+            `;
+        }
+    </script>
+</body>
+</html>
